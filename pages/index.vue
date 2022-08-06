@@ -1,27 +1,27 @@
 <template>
-  <v-row>
+  <v-row class="primary">
     <!-- Titulo -->
-    <v-col cols="12" class="teal lighten-4 mt-1 px-10">
+    <v-col cols="12" class="white mt-1 px-10">
       <h1>Titulo</h1>
     </v-col>
     <!-- Busca y ofrece espacios de parqueo -->
-    <v-col cols="12" class="text-center teal lighten-4 mt-1 pa-10">
+    <v-col cols="12" class="text-center white mt-1 pa-10">
       <h1>Busca y ofrece espacios de parqueo</h1>
       <Button @actionButton="actionButton" label="Buscar" class="mt-4" />
     </v-col>
     <!-- Beneficios -->
     <v-col cols="12" class="mt-1">
       <v-row>
-        <v-col class="teal lighten-4 pa-10">
+        <v-col class="white pa-10">
           <h3>
             Encuentra espacios para todo tipo de vehiculos (carro, moto,
             bicicleta, patinenetas)
           </h3>
         </v-col>
-        <v-col class="mx-1 teal lighten-4 pa-10">
+        <v-col class="mx-1 white pa-10">
           <h3>Ofrece cualquier espacio disponible en tu casa u oficina</h3>
         </v-col>
-        <v-col class="teal lighten-4 pa-10">
+        <v-col class="white pa-10">
           <h3>
             Rentabiliza tus zonas, tambien puedes darle opciones a tus clientes
             para que te visiten
@@ -30,9 +30,9 @@
       </v-row>
     </v-col>
     <!-- Informacion corta y concisa -->
-    <v-col cols="12" class="teal lighten-4 mt-1">
+    <v-col cols="12" class="white mt-1">
       <v-row>
-        <v-col cols="6" class="teal lighten-3"> Imagen </v-col>
+        <v-col cols="6" class="grey"> Imagen </v-col>
         <v-col cols="6" class="text-center pa-10">
           <h3>
             Puedes encontrar espacios para cualquier tipo de vehiculo, en
@@ -43,7 +43,7 @@
       </v-row>
     </v-col>
     <!-- Informacion corta y concisa -->
-    <v-col cols="12" class="teal lighten-4 mt-1">
+    <v-col cols="12" class="white mt-1">
       <v-row>
         <v-col cols="6" class="text-center pa-10">
           <h3>
@@ -53,7 +53,7 @@
           </h3>
           <Button @actionButton="actionButton" label="Ofrecer" class="mt-4" />
         </v-col>
-        <v-col cols="6" class="teal lighten-3"> Imagen </v-col>
+        <v-col cols="6" class="grey"> Imagen </v-col>
       </v-row>
     </v-col>
   </v-row>
