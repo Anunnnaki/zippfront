@@ -1,8 +1,9 @@
 <template>
   <v-row class="primary">
     <!-- Titulo -->
-    <v-col cols="12" class="white mt-1 px-10">
-      <h1>Titulo</h1>
+    <v-col cols="12" class="white mt-1 px-10 py-6 d-flex">
+      <ZippLogo />
+      <h1>Zipp</h1>
     </v-col>
     <!-- Busca y ofrece espacios de parqueo -->
     <v-col cols="12" class="text-center white mt-1 pa-10">

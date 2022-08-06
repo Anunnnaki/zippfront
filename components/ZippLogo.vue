@@ -1,15 +1,11 @@
 <template>
-  <img
-    class="vuetify-logo"
-    alt="Vuetify Logo"
-    src="/vuetify-logo.svg"
-  >
+  <img class="vuetify-logo" alt="Vuetify Logo" src="/img/zipp_logo.png" />
 </template>
 
 <style>
 .vuetify-logo {
-  height: 180px;
-  width: 180px;
+  height: 50px;
+  width: 50px;
   transform: rotateY(560deg);
   animation: turn 3.5s ease-out forwards 1s;
 }
