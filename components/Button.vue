@@ -1,5 +1,10 @@
 <template>
-  <v-btn color="primary" @click="$emit('actionButton')" v-text="label" />
+  <v-btn
+    color="primary"
+    rounded
+    @click="$emit('actionButton')"
+    v-text="label"
+  />
 </template>
 
 <script>
