@@ -40,7 +40,7 @@
             Rentabiliza tus zonas, tambien puedes darle opciones a tus clientes
             para que te visiten
           </h3>
-          <NuxtLogo imageToDisplay="people" />
+          <NuxtLogo imageToDisplay="money" />
         </v-col>
       </v-row>
     </v-col>
