@@ -4,6 +4,23 @@
     <v-col cols="12" class="text-center pa-10 d-flex">
       <ZippLogo />
       <h1>Zipp</h1>
+      <v-spacer />
+      <div>
+        <Button
+          @actionButton="actionButton"
+          class="mt-4"
+          label="Iniciar sesion"
+          :param="1"
+        />
+        <Button
+          @actionButton="actionButton"
+          class="mt-4 ml-4"
+          color="secondary"
+          label="Crear cuenta"
+          :outlined="true"
+          :param="2"
+        />
+      </div>
     </v-col>
     <!-- Busca y ofrece espacios de parqueo -->
     <v-col
@@ -92,8 +109,12 @@
 export default {
   name: "IndexPage",
   methods: {
-    actionButton() {
-      $nuxt.$router.push({ name: "login" });
+    actionButton(buttonSelected) {
+      if (buttonSelected === 0 || buttonSelected === 1) {
+        $nuxt.$router.push({ name: "login" });
+      } else {
+        $nuxt.$router.push({ name: "signUp" });
+      }
     },
   },
 };
