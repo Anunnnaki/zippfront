@@ -4,7 +4,13 @@
       :methodSendForm.sync="methodSendForm"
       :paramForm.sync="paramForm"
     />
-    <Button label="Ingresar" type="submit" :disabled="!validForm" />
+    <Button label="Crear cuenta" type="submit" class="mr-2 white--text" />
+    <Button
+      color="primary"
+      label="Ingresar"
+      type="submit"
+      :disabled="!validForm"
+    />
   </v-form>
 </template>
 

@@ -2,10 +2,11 @@
   <v-text-field
     v-model="localModel"
     autocomplete="off"
-    color="secondary"
+    color="terniary"
     dense
     :label="label"
     outlined
+    required
     rounded
     :rules="rules"
     :type="type"

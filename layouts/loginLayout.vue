@@ -4,7 +4,7 @@
       <v-container fill-height>
         <v-row justify="center" align="center">
           <v-col cols="7" sm="4" class="text-center">
-            <ZippLogo />
+            <ZippLogo width="70" height="70" />
             <h1 class="mb-8">Zipp</h1>
             <Nuxt />
           </v-col>
