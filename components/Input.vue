@@ -2,6 +2,7 @@
   <v-text-field
     v-model="localModel"
     autocomplete="off"
+    color="secondary"
     dense
     :label="label"
     outlined

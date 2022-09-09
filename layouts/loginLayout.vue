@@ -3,7 +3,9 @@
     <v-main>
       <v-container fill-height>
         <v-row justify="center" align="center">
-          <v-col cols="4" class="text-center">
+          <v-col cols="7" sm="4" class="text-center">
+            <ZippLogo />
+            <h1 class="mb-8">Zipp</h1>
             <Nuxt />
           </v-col>
         </v-row>
@@ -15,5 +17,11 @@
 <script>
 export default {
   name: "loginLayout",
+
+  data() {
+    return {
+      logo: "~/img/fog_via",
+    };
+  },
 };
 </script>
