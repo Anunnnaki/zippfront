@@ -1,11 +1,9 @@
 <template>
-  <Form />
+  <h1>Home</h1>
 </template>
 
 <script>
-export default {
-  layout: "loginLayout",
-};
+export default {};
 </script>
 
 <style>

@@ -3,8 +3,10 @@
     v-text="label"
     @click="$emit('actionButton', param)"
     :color="color"
+    :disabled="disabled"
     :outlined="outlined"
     rounded
+    type="type"
   />
 </template>
 
@@ -15,6 +17,10 @@ export default {
       type: String,
       default: "primary",
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
     label: {
       type: String,
       default: "label",
@@ -22,6 +28,10 @@ export default {
     outlined: {
       type: Boolean,
       default: false,
+    },
+    type: {
+      type: String,
+      default: "button",
     },
     param: {
       type: Number,
