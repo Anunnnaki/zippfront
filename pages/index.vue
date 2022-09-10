@@ -17,7 +17,6 @@
           class="mt-4 ml-4"
           color="secondary"
           label="Crear cuenta"
-          :outlined="true"
           :param="2"
         />
       </div>

@@ -7,9 +7,8 @@
             <ZippLogo :width="70" :height="70" />
             <h1 class="mb-8">Zipp</h1>
             <v-col
-              ><span class="secondary--text headline">Iniciar sesion</span>
+              ><span class="secondary--text headline">Crear cuenta</span>
             </v-col>
-
             <Nuxt />
           </v-col>
         </v-row>
@@ -20,7 +19,7 @@
 
 <script>
 export default {
-  name: "loginLayout",
+  name: "signUpLayout",
 
   data() {
     return {

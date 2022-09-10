@@ -1,9 +1,11 @@
 <template>
-  <h1>Registro</h1>
+  <Form formShow="formSignUp" />
 </template>
 
 <script>
-export default {};
+export default {
+  layout: "signUpLayout",
+};
 </script>
 
 <style>

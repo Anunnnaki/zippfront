@@ -2,20 +2,25 @@
   <v-btn
     v-text="label"
     @click="$emit('actionButton', param)"
+    :block="block"
     :color="color"
     :disabled="disabled"
     :outlined="outlined"
     rounded
-    type="type"
+    :type="type"
   />
 </template>
 
 <script>
 export default {
   props: {
+    block: {
+      type: Boolean,
+      default: false,
+    },
     color: {
       type: String,
-      default: "secondary",
+      default: "primary",
     },
     disabled: {
       type: Boolean,

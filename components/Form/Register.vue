@@ -2,7 +2,15 @@
   <v-row>
     <v-col cols="12">
       <Input
-        label="Email"
+        label="Ingrese su nombre"
+        :model.sync="model.name"
+        :rules="[(v) => !!v || 'El nombre es necesario']"
+        class="mb-n6"
+      />
+    </v-col>
+    <v-col cols="12">
+      <Input
+        label="Ingrese su correo"
         :model.sync="model.email"
         type="email"
         :rules="[(v) => !!v || 'El correo es necesario']"
@@ -11,7 +19,7 @@
     </v-col>
     <v-col cols="12">
       <Input
-        label="Contraseña"
+        label="Ingresa una contraseña"
         :model.sync="model.password"
         type="password"
         :rules="[(v) => !!v || 'La contraseña es necesaria']"
@@ -21,7 +29,7 @@
 </template>
 
 <script>
-import { loginController } from "~/controllers/loginController";
+import { registerController } from "~/controllers/registerController";
 
 export default {
   props: {
@@ -38,6 +46,7 @@ export default {
   data() {
     return {
       model: {
+        name: "",
         email: "",
         password: "",
       },
@@ -45,12 +54,12 @@ export default {
   },
 
   created() {
-    this.$emit("update:methodSendForm", this.singIn);
+    this.$emit("update:methodSendForm", this.signUp);
     this.$emit("update:paramForm", this.model);
   },
 
   methods: {
-    singIn: loginController.singIn,
+    signUp: registerController.signUp,
   },
 };
 </script>
