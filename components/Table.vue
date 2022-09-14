@@ -1,7 +1,7 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="desserts"
+    :items="items"
     sort-by="calories"
     class="elevation-1"
   >
@@ -84,7 +84,7 @@
         </v-dialog>
       </v-toolbar>
     </template>
-    <template #`[actions]`="{ item }">
+    <template #[`item.actions`]="{ item }">
       <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
       <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
     </template>
@@ -96,20 +96,26 @@
 
 <script>
 export default {
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+    },
+  },
   data: () => ({
     dialog: false,
     dialogDelete: false,
     headers: [
       {
-        text: "Dessert (100g serving)",
+        text: "Nombre de la zona",
         align: "start",
         sortable: false,
-        value: "name",
+        value: "nameZone",
       },
-      { text: "Calories", value: "calories" },
-      { text: "Fat (g)", value: "fat" },
-      { text: "Carbs (g)", value: "carbs" },
-      { text: "Protein (g)", value: "protein" },
+      { text: "Direccion", value: "addressZone" },
+      { text: "Tipos", value: "tipo" },
+      { text: "Disponibilidad", value: "dispo" },
+      { text: "Valor", value: "valor" },
       { text: "Actions", value: "actions", sortable: false },
     ],
     desserts: [],
