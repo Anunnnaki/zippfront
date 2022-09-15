@@ -1,5 +1,8 @@
 <template>
-  <Table :items="table.items" />
+  <v-container fluid>
+    <Toolbar class="mb-8" title="Zonas" />
+    <Table :items="table.items" />
+  </v-container>
 </template>
 
 <script>
@@ -21,6 +24,11 @@ export default {
   },
   methods: {
     getZones: zoneController.get.zones,
+    // postZone: zoneController.post.zones,
+
+    // actionButton() {
+    //   console.log("ok");
+    // },
   },
 };
 </script>

@@ -7,5 +7,5 @@ export default function ({redirect, store, $api}) {
     // if (!isAuthenticated) {
     //   redirect({name: 'auth'})
     // }
-    console.log('ok')
+    // console.log('ok')
   }

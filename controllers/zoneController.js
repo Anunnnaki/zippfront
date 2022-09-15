@@ -4,5 +4,11 @@ export const zoneController = {
                 const {data} = await $nuxt.$api.get('zones')
                 return data
         }
+    },
+    post: {
+        zone: async (payload) => {
+                const {data} = await $nuxt.$api.post('zones', payload)
+                return data
+        }
     }
 }
