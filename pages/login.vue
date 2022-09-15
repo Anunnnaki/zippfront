@@ -1,5 +1,5 @@
 <template>
-  <Form formShow="formLogin" />
+  <Form :isLoginRegister="true" formShow="formLogin" />
 </template>
 
 <script>

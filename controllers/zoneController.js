@@ -8,7 +8,10 @@ export const zoneController = {
     post: {
         zone: async (payload) => {
                 const {data} = await $nuxt.$api.post('zones', payload)
-                return data
+                if(data) {
+                    $nuxt.refresh()
+                     return true
+                }
         }
     }
 }

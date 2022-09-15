@@ -2,7 +2,7 @@
   <v-container fluid>
     <Toolbar class="mb-8" title="Zonas" :actionButton="openModal" />
     <Table :items="table.items" />
-    <Dialog :isDialog.sync="dialog.isDialog" />
+    <Dialog :isDialog.sync="dialog.isDialog" title="Crear zona" />
   </v-container>
 </template>
 

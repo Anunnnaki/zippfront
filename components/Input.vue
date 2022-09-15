@@ -21,7 +21,7 @@ export default {
       default: "label",
     },
     model: {
-      type: String,
+      type: [String, Number],
       default: "label",
     },
     rules: {
