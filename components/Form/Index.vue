@@ -18,7 +18,7 @@
       class="mb-4 mt-n4 white--text"
       color="secondary"
       :block="true"
-      @actionButton="actionButton"
+      :actionButton="actionButton"
     />
     <Button
       :block="true"

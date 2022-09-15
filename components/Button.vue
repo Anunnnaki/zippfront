@@ -1,7 +1,7 @@
 <template>
   <v-btn
     v-text="label"
-    @click="$emit('actionButton', param)"
+    @click="actionButton(param)"
     :block="block"
     :color="color"
     :disabled="disabled"
@@ -14,6 +14,10 @@
 <script>
 export default {
   props: {
+    actionButton: {
+      type: Function,
+      default: () => null,
+    },
     block: {
       type: Boolean,
       default: false,

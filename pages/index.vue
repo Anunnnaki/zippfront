@@ -7,13 +7,13 @@
       <v-spacer />
       <div>
         <Button
-          @actionButton="actionButton"
+          :actionButton="actionButton"
           class="mt-4"
           label="Iniciar sesion"
           :param="1"
         />
         <Button
-          @actionButton="actionButton"
+          :actionButton="actionButton"
           class="mt-4 ml-4"
           color="secondary"
           label="Crear cuenta"
@@ -29,7 +29,7 @@
     >
       <h1>Busca y ofrece espacios de parqueo</h1>
       <NuxtLogo imageToDisplay="walking" class="mt-4" />
-      <Button @actionButton="actionButton" label="Buscar" class="mt-4" />
+      <Button :actionButton="actionButton" label="Buscar" class="mt-4" />
     </v-col>
     <!-- Beneficios -->
     <v-col cols="12" class="text-center" style="border-top: 1px solid #bace00">
@@ -75,7 +75,7 @@
             Puedes encontrar espacios para cualquier tipo de vehiculo, en
             cualquier lugar cerca o donde necesites ir
           </h3>
-          <Button @actionButton="actionButton" label="Buscar" class="mt-4" />
+          <Button :actionButton="actionButton" label="Buscar" class="mt-4" />
         </v-col>
       </v-row>
     </v-col>
@@ -89,7 +89,7 @@
               carros y motos hasta cualquier espacio para guardar bicicletas,
               patinetas, scooter, malumetas, etc
             </h3>
-            <Button @actionButton="actionButton" label="Ofrecer" class="mt-4" />
+            <Button :actionButton="actionButton" label="Ofrecer" class="mt-4" />
           </div>
         </v-col>
         <v-col
