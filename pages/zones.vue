@@ -1,7 +1,8 @@
 <template>
   <v-container fluid>
-    <Toolbar class="mb-8" title="Zonas" />
+    <Toolbar class="mb-8" title="Zonas" :actionButton="openModal" />
     <Table :items="table.items" />
+    <Dialog :isDialog.sync="dialog.isDialog" />
   </v-container>
 </template>
 
@@ -16,6 +17,9 @@ export default {
       table: {
         items: [],
       },
+      dialog: {
+        isDialog: false,
+      },
     };
   },
 
@@ -25,11 +29,20 @@ export default {
   methods: {
     getZones: zoneController.get.zones,
     // postZone: zoneController.post.zones,
+    openModal() {
+      this.dialog.isDialog = true;
+      // this.dialog.isOpen = true;
+    },
 
     // actionButton() {
     //   console.log("ok");
     // },
   },
+  // created() {
+  //   $nuxt.$on("actionButton", () => {
+  //     console.log("ok");
+  //   });
+  // },
 };
 </script>
 

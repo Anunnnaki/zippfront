@@ -2,7 +2,7 @@
   <v-toolbar elevation="1">
     <v-toolbar-title v-text="title" />
     <v-spacer />
-    <Button label="Agregar" color="primary" />
+    <Button label="Agregar" color="primary" :actionButton="actionButton" />
   </v-toolbar>
 </template>
 
@@ -12,6 +12,10 @@ export default {
     title: {
       type: String,
       default: "title",
+    },
+    actionButton: {
+      type: Function,
+      default: () => null,
     },
   },
 };
