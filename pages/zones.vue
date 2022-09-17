@@ -3,8 +3,10 @@
     <Toolbar class="mb-8" title="Zonas" :actionButton="openModal" />
     <Table :items="table.items">
       <template slot="actions" slot-scope="{ item }">
-        <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
-        <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+        <v-icon color="#f7c842" class="mr-2" @click="editItem(item)">
+          mdi-pencil
+        </v-icon>
+        <v-icon color="#E74C3C" @click="deleteItem(item)"> mdi-delete </v-icon>
       </template>
     </Table>
     <Dialog
