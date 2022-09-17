@@ -107,6 +107,8 @@
 <script>
 export default {
   name: "IndexPage",
+  layout: "landingPage",
+
   methods: {
     actionButton(buttonSelected) {
       if (buttonSelected === 0 || buttonSelected === 1) {

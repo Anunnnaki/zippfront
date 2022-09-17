@@ -1,7 +1,6 @@
 <template>
   <v-app dark>
-    <NavigationDrawer />
-    <v-main style="padding: 0px 0px 0px 70px">
+    <v-main>
       <Nuxt />
     </v-main>
   </v-app>
@@ -9,6 +8,7 @@
 
 <script>
 export default {
-  name: "DefaultLayout",
+  name: "landingPage",
 };
 </script>
+
