@@ -17,6 +17,7 @@
       v-if="formShow === 'formZones'"
       :methodSendForm.sync="methodSendForm"
       :paramForm.sync="paramForm"
+      :isDialog="isDialog"
     />
     <!-- Acciones en cuanto login/registro -->
     <template v-if="isLoginRegister">
@@ -44,7 +45,7 @@
           class="ml-2"
           color="primary"
           :disabled="!validForm"
-          label="Crear"
+          :label="!paramForm._id ? 'Crear' : 'Editar'"
           type="submit"
         />
       </div>
@@ -92,6 +93,7 @@ export default {
     closeDialog() {
       this.$emit("update:isDialog", false);
       this.$refs.form.reset();
+      $nuxt.$store.dispatch("zone.store/actResetState");
     },
   },
 };

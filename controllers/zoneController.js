@@ -13,5 +13,15 @@ export const zoneController = {
                      return true
                 }
         }
+    },
+    put: {
+        zone: async (payload) => {
+                const {data} = await $nuxt.$api.put(`zones/${payload._id}`, payload )
+              
+                if(data) {
+                    $nuxt.refresh()
+                     return true
+                }
+        }
     }
 }
