@@ -1,10 +1,10 @@
 export const Zone = {
   nameZone: "",
   addressZone: "",
-  gps: 0,
+  gps: null,
   tipo: "",
   dispo: "",
-  valor: 0,
+  valor: null,
 };
 export const VModelZone = [
   // {

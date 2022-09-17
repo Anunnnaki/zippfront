@@ -3,7 +3,7 @@
     :headers="headers"
     :items="items"
     sort-by="calories"
-    class="elevation-1"
+    class="elevation-2 rounded-xl"
   >
     <template #[`item.actions`]="{ item }">
       <slot name="actions" :item="item" />

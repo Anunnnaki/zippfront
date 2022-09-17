@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar elevation="1">
+  <v-toolbar elevation="2" rounded="xl">
     <v-toolbar-title v-text="title" />
     <v-spacer />
     <Button label="Agregar" color="primary" :actionButton="actionButton" />
