@@ -38,6 +38,7 @@ export default {
 
   methods: {
     getZones: zoneController.get.zones,
+    removeZone: zoneController.remove.zone,
     // postZone: zoneController.post.zones,
     openModal() {
       this.dialog.isDialog = true;
@@ -49,7 +50,6 @@ export default {
     // },
 
     editItem(item) {
-      // console.log("🚀 ~ file: zones.vue ~ line 49 ~ editItem ~ item", item);
       // console.log(this.table.items.indexOf(item));
       // this.editedIndex = this.desserts.indexOf(item);
       // this.editedItem = Object.assign({}, item);
@@ -62,11 +62,12 @@ export default {
       // this.dialog = true;
     },
 
-    // deleteItem(item) {
-    //   this.editedIndex = this.desserts.indexOf(item);
-    //   this.editedItem = Object.assign({}, item);
-    //   this.dialogDelete = true;
-    // },
+    deleteItem({ _id }) {
+      this.removeZone(_id);
+      // this.editedIndex = this.desserts.indexOf(item);
+      // this.editedItem = Object.assign({}, item);
+      // this.dialogDelete = true;
+    },
 
     // deleteItemConfirm() {
     //   this.desserts.splice(this.editedIndex, 1);
