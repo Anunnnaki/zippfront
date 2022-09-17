@@ -195,3 +195,9 @@ export default {
   },
 };
 </script>
+
+<style >
+.v-data-table__wrapper {
+  height: calc(100vh - 200px);
+}
+</style>
