@@ -1,5 +1,11 @@
 <template>
-  <v-navigation-drawer app permanent expand-on-hover color="tertiary">
+  <v-navigation-drawer
+    app
+    permanent
+    expand-on-hover
+    color="tertiary"
+    style="z-index: 9999"
+  >
     <v-list>
       <v-list-item class="px-2">
         <v-list-item-avatar>

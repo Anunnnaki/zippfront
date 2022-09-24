@@ -1,7 +1,12 @@
 export default [
   {
+    icon: "map-outline",
+    title: "Mapa",
+    to: "map",
+  },
+  {
     icon: "map-marker",
-    title: "Zonas",
+    title: "Mis zonas",
     to: "zones",
   },
 ];
