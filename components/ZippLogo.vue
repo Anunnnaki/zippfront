@@ -1,6 +1,6 @@
 <template>
   <img
-    class="vuetify-logo"
+    :class="{ 'vuetify-logo': animation === true }"
     alt="Vuetify Logo"
     src="/img/zipp_logo.png"
     :style="`width: ${width}px; height: ${height}px`"
@@ -10,6 +10,10 @@
 <script>
 export default {
   props: {
+    animation: {
+      type: Boolean,
+      default: true,
+    },
     width: {
       type: Number,
       default: 50,
