@@ -1,7 +1,7 @@
 export const Zone = {
   nameZone: "",
   addressZone: "",
-  gps: null,
+  gps: {},
   tipo: "",
   dispo: "",
   valor: null,

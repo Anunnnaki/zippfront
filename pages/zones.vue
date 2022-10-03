@@ -12,6 +12,7 @@
     <Dialog
       :isDialog.sync="dialog.isDialog"
       :title="!editedZone._id ? 'Crear zona' : 'Editar zona'"
+      :fullscreen="true"
     />
   </v-container>
 </template>

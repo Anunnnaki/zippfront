@@ -1,6 +1,12 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="localIsDialog" persistent max-width="600px">
+    <v-dialog
+      style="z-index: 9999"
+      v-model="localIsDialog"
+      :fullscreen="fullscreen"
+      persistent
+      max-width="600px"
+    >
       <v-card rounded="xl">
         <v-card-title>
           <span class="text-h5" v-text="title" />
@@ -25,6 +31,10 @@ export default {
     title: {
       type: String,
       default: "title",
+    },
+    fullscreen: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

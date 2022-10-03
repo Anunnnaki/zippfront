@@ -7,6 +7,3 @@ export default {
   layout: "loginLayout",
 };
 </script>
-
-<style>
-</style>
