@@ -12,6 +12,7 @@
     <Dialog
       :isDialog.sync="dialog.isDialog"
       :title="!editedZone._id ? 'Crear zona' : 'Editar zona'"
+      maxWidth="1100px"
     />
   </v-container>
 </template>
@@ -113,5 +114,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
