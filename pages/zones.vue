@@ -11,7 +11,7 @@
     </Table>
     <Dialog
       :isDialog.sync="dialog.isDialog"
-      :title="!editedZone._id ? 'Crear zona' : 'Editar zona'"
+      :title="!editedZone._id ? 'Nueva zona' : 'Editar zona'"
       :fullscreen="true"
     />
   </v-container>
@@ -114,5 +114,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

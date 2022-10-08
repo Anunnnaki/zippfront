@@ -2,7 +2,7 @@
   <v-toolbar elevation="2" rounded="xl">
     <v-toolbar-title v-text="title" />
     <v-spacer />
-    <Button label="Agregar" color="primary" :actionButton="actionButton" />
+    <Button label="Nueva zona" color="primary" :actionButton="actionButton" />
   </v-toolbar>
 </template>
 
@@ -21,5 +21,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
