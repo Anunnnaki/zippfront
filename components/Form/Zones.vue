@@ -31,49 +31,38 @@
           /> -->
         </v-col>
         <v-col cols="12" class="mb-n6">
-          <!-- <Input
-            label="Tipos"
-            :model.sync="zoneItemTipo"
-            :rules="[(v) => !!v || 'El tipo es necesario']"
-          /> -->
-          {{ zoneItemTipo }}
           <v-select
             v-model="zoneItemTipo"
             dense
             :items="selectItemsType"
             item-text="type"
-            item-value="type"
+            :rules="[(v) => !!v || 'El tipo es necesario']"
+            item-value="id"
             label="Tipo"
             outlined
             rounded
           ></v-select>
         </v-col>
         <v-col cols="12" class="mb-n6">
-          <!-- <Input
-            label="Disponibilidad"
-            :model.sync="zoneItemDispo"
-            :rules="[(v) => !!v || 'La disponibilidad es necesaria']"
-          /> -->
           <v-select
+            v-model="zoneItemDispo"
             dense
             label="Diponibilidad"
             :items="selectItemsDispo"
+            :rules="[(v) => !!v || 'La disponibilidad es necesaria']"
             item-text="time"
             item-value="id"
             outlined
             rounded
           ></v-select>
         </v-col>
-        <v-col cols="12">
-          {{ zoneItemValor }}
-          <!-- <Input
-            label="Valor"
-            :model.sync="zoneItemValor"
-            :rules="[
-              (v) => !!v || 'El valor es necesario',
-              (v) => !isNaN(v) || 'Solo se aceptan numeros',
-            ]"
-          /> -->
+        <v-col cols="12" v-if="valor">
+          <v-card
+            class="secondary pa-2 text-center text-body-1 rounded-lg elevation-0"
+          >
+            <span class="white--text">Tarifa del servicio</span><br />
+            <span class="primary--text"> {{ valor }}</span>
+          </v-card>
         </v-col>
       </v-row>
     </v-col>
@@ -108,18 +97,22 @@ export default {
         {
           id: 1,
           type: "Carro",
+          price: 2500,
         },
         {
           id: 2,
           type: "Motocicleta",
+          price: 2000,
         },
         {
           id: 3,
           type: "Bicicleta",
+          price: 1500,
         },
         {
           id: 4,
           type: "skooter",
+          price: 1500,
         },
       ],
       selectItemsDispo: [
@@ -152,20 +145,6 @@ export default {
     };
   },
 
-  watch: {
-    zoneItemValor(val) {
-      this.zoneItemValor = Number(val);
-    },
-    // zoneItemGps(val) {
-    //   this.zoneItemGps = Number(val);
-    // },
-    isDialog(val) {
-      if (val) {
-        this.dataSendForm();
-      }
-    },
-  },
-
   created() {
     this.dataSendForm();
   },
@@ -176,6 +155,20 @@ export default {
       path: "zone.store",
       mut: "zone.store/setProperty",
     }),
+
+    valor() {
+      const itemAvailable = this.selectItemsDispo.find(
+        (v) => v.id === this.zoneItemDispo
+      );
+
+      const itemType = this.selectItemsType.find(
+        (v) => v.id === this.zoneItemTipo
+      );
+      if (!itemAvailable || !itemType) {
+        return null;
+      }
+      return this.formatMoney(itemAvailable.value * itemType.price);
+    },
   },
 
   methods: {
@@ -188,6 +181,7 @@ export default {
         !this.editedZone._id ? this.postZone : this.putZone
       );
       this.$emit("update:paramForm", this.editedZone);
+      this.items = [];
     },
 
     addMarker({ containerPoint, latlng }) {
@@ -202,7 +196,18 @@ export default {
           gps,
         },
       ];
+
       this.zoneItemGps = gps;
+    },
+
+    formatMoney(value) {
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+      });
+
+      return formatter.format(value);
     },
   },
 };
