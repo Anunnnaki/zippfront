@@ -9,14 +9,14 @@
           <Input
             label="Nombre de la zona"
             :model.sync="zoneItemNameZone"
-            :rules="[(v) => !!v || 'El nombre de la zona es necesario']"
+            :rules="rules.zoneItemNameZone"
           />
         </v-col>
         <v-col cols="12" class="mb-n6">
           <Input
             label="Direccion"
             :model.sync="zoneItemAddressZone"
-            :rules="[(v) => !!v || 'La direccion es necesaria']"
+            :rules="rules.zoneItemAddressZone"
           />
         </v-col>
         <v-col cols="12" class="mb-n6">
@@ -74,6 +74,7 @@ import { zoneController } from "~/controllers/zoneController";
 import { propertiesGenerator } from "~/plugins/helpers";
 import { VModelZone } from "~/interfaces/zone.interface";
 import { mapGetters } from "vuex";
+import { Regex } from "~/plugins/regex";
 
 export default {
   props: {
@@ -92,6 +93,16 @@ export default {
   },
   data() {
     return {
+      rules: {
+        zoneItemNameZone: [
+          (v) => !!v || "El nombre de la zona es requerida",
+          (v) => Regex.onlyLetters.test(v) || "Solo se aceptan letras",
+        ],
+        zoneItemAddressZone: [
+          (v) => !!v || "La direccion de la zona es requerida",
+          (v) => Regex.onlyAdress.test(v) || "Direccion invalida",
+        ],
+      },
       items: [],
       selectItemsType: [
         {
