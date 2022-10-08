@@ -9,58 +9,50 @@
       </v-col>
       <!-- Formulario -->
       <v-col cols="6">
-        <v-form>
-          <v-row>
-            <v-col cols="12" class="mb-n6">
-              <Input
-                label="Nombre de la zona"
-                :model.sync="zoneItemNameZone"
-                :rules="[(v) => !!v || 'El nombre de la zona es necesario']"
-              />
-            </v-col>
-            <v-col cols="12" class="mb-n6">
-              <Input
-                label="Direccion"
-                :model.sync="zoneItemAddressZone"
-                :rules="[(v) => !!v || 'La direccion es necesaria']"
-              />
-            </v-col>
-            <v-col cols="12" class="mb-n6">
+        <v-row>
+          <v-col cols="12" class="mb-n6">
+            <Input
+              label="Nombre de la zona"
+              :model.sync="zoneItemNameZone"
+              :rules="rules.zoneItemNameZone"
+            />
+          </v-col>
+          <v-col cols="12" class="mb-n6">
+            <Input
+              label="Direccion de la zona"
+              :model.sync="zoneItemAddressZone"
+              :rules="rules.zoneItemAddressZone"
+            />
+          </v-col>
+          <!-- <v-col cols="12" class="mb-n6">
               <Input
                 label="GPS"
                 :model.sync="zoneItemGps"
-                :rules="[
-                  (v) => !!v || 'El gps es necesario',
-                  (v) => !isNaN(v) || 'Solo se aceptan numeros',
-                ]"
+                :rules="rules.zoneItemGps"
               />
-            </v-col>
-            <v-col cols="12" class="mb-n6">
-              <Input
-                label="Tipos"
-                :model.sync="zoneItemTipo"
-                :rules="[(v) => !!v || 'El tipo es necesario']"
-              />
-            </v-col>
-            <v-col cols="12" class="mb-n6">
-              <Input
-                label="Disponibilidad"
-                :model.sync="zoneItemDispo"
-                :rules="[(v) => !!v || 'La disponibilidad es necesaria']"
-              />
-            </v-col>
-            <v-col cols="12">
+            </v-col> -->
+          <v-col cols="12" class="mb-n6">
+            <Input
+              label="Tipos"
+              :model.sync="zoneItemTipo"
+              :rules="rules.zoneItemTipo"
+            />
+          </v-col>
+          <v-col cols="12" class="mb-n6">
+            <Input
+              label="Disponibilidad"
+              :model.sync="zoneItemDispo"
+              :rules="rules.zoneItemDispo"
+            />
+          </v-col>
+          <!-- <v-col cols="12">
               <Input
                 label="Valor"
                 :model.sync="zoneItemValor"
-                :rules="[
-                  (v) => !!v || 'El valor es necesario',
-                  (v) => !isNaN(v) || 'Solo se aceptan numeros',
-                ]"
+                :rules="rules.zoneItemValor"
               />
-            </v-col>
-          </v-row>
-        </v-form>
+            </v-col> -->
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
@@ -71,6 +63,7 @@ import { zoneController } from "~/controllers/zoneController";
 import { propertiesGenerator } from "~/plugins/helpers";
 import { VModelZone } from "~/interfaces/zone.interface";
 import { mapGetters } from "vuex";
+import { Regex } from "~/plugins/regex";
 
 export default {
   props: {
@@ -91,6 +84,22 @@ export default {
   data() {
     return {
       key: 0,
+      rules: {
+        zoneItemNameZone: [
+          (v) => !!v || "El nombre de la zona es requerido",
+          (v) => Regex.onlyString.test(v) || "Solo se aceptan letras",
+        ],
+        zoneItemAddressZone: [
+          (v) => !!v || "La direccion de la zona es requerida",
+          (v) => Regex.onlyAddress.test(v) || "Direccion invalida",
+        ],
+        // zoneItemGps: [(v) => !!v || "El nombre de la zona es requerido"],
+        zoneItemTipo: [(v) => !!v || "El tipo de la zona es requerido"],
+        zoneItemDispo: [
+          (v) => !!v || "La disponibilidad de la zona es requerido",
+        ],
+        // zoneItemValor: [(v) => !!v || "El nombre de la zona es requerido"],
+      },
     };
   },
 
