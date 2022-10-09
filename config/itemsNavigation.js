@@ -4,9 +4,9 @@ export default [
     title: "Mapa",
     to: "map",
   },
-  {
-    icon: "map-marker",
-    title: "Mis zonas",
-    to: "zones",
-  },
+  // {
+  //   icon: "map-marker",
+  //   title: "Mis zonas",
+  //   to: "zones",
+  // },
 ];
