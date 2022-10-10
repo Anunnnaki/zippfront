@@ -1,9 +1,5 @@
 <template>
-  <v-row>
-    <v-col cols="12" class="pa-0 pt-3">
-      <LazyMap :items="[]" :clickMap="clickMap" />
-    </v-col>
-  </v-row>
+  <Map :items="items" />
 </template>
 
 <script>
@@ -17,6 +13,7 @@ export default {
       items: [],
     };
   },
+
   async fetch() {
     const zones = await this.getZones();
     this.items = zones;
@@ -30,3 +27,7 @@ export default {
   },
 };
 </script>
+<<<<<<< HEAD =======
+
+<style></style>
+>>>>>>> release/0.1.0

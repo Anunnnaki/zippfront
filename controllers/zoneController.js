@@ -1,3 +1,5 @@
+import { alertGeneral } from "~/assets/Alert";
+
 export const zoneController = {
   get: {
     zones: async () => {
@@ -9,6 +11,7 @@ export const zoneController = {
     zone: async (payload) => {
       const { data } = await $nuxt.$api.post("zones", payload);
       if (data) {
+        alertGeneral('Exitoso!','Zona creada','success')
         $nuxt.refresh();
         return true;
       }

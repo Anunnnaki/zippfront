@@ -1,72 +1,61 @@
 <template>
-  <v-row class="mb-2">
-    <v-col :cols="items.length ? '8' : ''">
-      <LazyMap :items="items" height="500px" :clickMap="addMarker" />
-    </v-col>
-    <v-col cols="4" v-if="items.length ? true : false">
-      <v-row>
-        <v-col cols="12" class="mb-n6">
-          <Input
-            label="Nombre de la zona"
-            :model.sync="zoneItemNameZone"
-            :rules="rules.zoneItemNameZone"
-          />
-        </v-col>
-        <v-col cols="12" class="mb-n6">
-          <Input
-            label="Direccion"
-            :model.sync="zoneItemAddressZone"
-            :rules="rules.zoneItemAddressZone"
-          />
-        </v-col>
-        <v-col cols="12" class="mb-n6">
-          <!-- {{ (zoneItemGps = items.length ? items[0].gps : zoneItemGps) }} -->
-          <!-- <Input
-            label="GPS"
-            :model.sync="zoneItemGps"
-            :rules="[
-              (v) => !!v || 'El gps es necesario',
-              (v) => !isNaN(v) || 'Solo se aceptan numeros',
-            ]"
-          /> -->
-        </v-col>
-        <v-col cols="12" class="mb-n6">
-          <v-select
-            v-model="zoneItemTipo"
-            dense
-            :items="selectItemsType"
-            item-text="type"
-            :rules="[(v) => !!v || 'El tipo es necesario']"
-            item-value="id"
-            label="Tipo"
-            outlined
-            rounded
-          ></v-select>
-        </v-col>
-        <v-col cols="12" class="mb-n6">
-          <v-select
-            v-model="zoneItemDispo"
-            dense
-            label="Diponibilidad"
-            :items="selectItemsDispo"
-            :rules="[(v) => !!v || 'La disponibilidad es necesaria']"
-            item-text="time"
-            item-value="id"
-            outlined
-            rounded
-          ></v-select>
-        </v-col>
-        <v-col cols="12" v-if="valor">
-          <v-card
-            class="secondary pa-2 text-center text-body-1 rounded-lg elevation-0"
-          >
-            <span class="white--text">Tarifa del servicio</span><br />
-            <span class="primary--text"> {{ valor }}</span>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-col>
-  </v-row>
+  <v-container fill-height>
+    <v-row>
+      <!-- Mapa -->
+      <!-- <v-col cols="6">
+        <v-card style="height: calc(100vh - 250px)">
+          <LazyMap :key="key"
+        /></v-card>
+      </v-col> -->
+      <!-- Formulario -->
+      <v-col cols="12">
+        <v-row>
+          <v-col cols="12" class="mb-n6">
+            <Input
+              label="Nombre de la zona"
+              :model.sync="zoneItemNameZone"
+              :rules="rules.zoneItemNameZone"
+            />
+          </v-col>
+          <v-col cols="12" class="mb-n6">
+            <Input
+              label="Direccion de la zona"
+              :model.sync="zoneItemAddressZone"
+              :rules="rules.zoneItemAddressZone"
+            />
+          </v-col>
+          <!-- <v-col cols="12" class="mb-n6">
+              <Input
+                label="GPS"
+                :model.sync="zoneItemGps"
+                :rules="rules.zoneItemGps"
+              />
+            </v-col> -->
+          <!-- <v-col cols="12" class="mb-n6">
+            <Input
+              label="Tipos"
+              :model.sync="zoneItemTipo"
+              :rules="rules.zoneItemTipo"
+            />
+          </v-col>
+          <v-col cols="12" class="mb-n6">
+            <Input
+              label="Disponibilidad"
+              :model.sync="zoneItemDispo"
+              :rules="rules.zoneItemDispo"
+            />
+          </v-col> -->
+          <!-- <v-col cols="12">
+              <Input
+                label="Valor"
+                :model.sync="zoneItemValor"
+                :rules="rules.zoneItemValor"
+              />
+            </v-col> -->
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -91,74 +80,53 @@ export default {
       default: () => {},
     },
   },
+
   data() {
     return {
+      key: 0,
       rules: {
         zoneItemNameZone: [
-          (v) => !!v || "El nombre de la zona es requerida",
-          (v) => Regex.onlyLetters.test(v) || "Solo se aceptan letras",
+          (v) => !!v || "El nombre de la zona es requerido",
+          (v) => Regex.onlyString.test(v) || "Solo se aceptan letras",
         ],
         zoneItemAddressZone: [
           (v) => !!v || "La direccion de la zona es requerida",
-          (v) => Regex.onlyAdress.test(v) || "Direccion invalida",
+          (v) => Regex.onlyAddress.test(v) || "Direccion invalida",
         ],
+        // zoneItemGps: [(v) => !!v || "El nombre de la zona es requerido"],
+        zoneItemTipo: [(v) => !!v || "El tipo de la zona es requerido"],
+        zoneItemDispo: [
+          (v) => !!v || "La disponibilidad de la zona es requerido",
+        ],
+        // zoneItemValor: [(v) => !!v || "El nombre de la zona es requerido"],
       },
-      items: [],
-      selectItemsType: [
-        {
-          id: 1,
-          type: "Carro",
-          price: 2500,
-        },
-        {
-          id: 2,
-          type: "Motocicleta",
-          price: 2000,
-        },
-        {
-          id: 3,
-          type: "Bicicleta",
-          price: 1500,
-        },
-        {
-          id: 4,
-          type: "skooter",
-          price: 1500,
-        },
-      ],
-      selectItemsDispo: [
-        {
-          id: 1,
-          time: "1 hora",
-          value: 1,
-        },
-        {
-          id: 2,
-          time: "2 horas",
-          value: 2,
-        },
-        {
-          id: 3,
-          time: "3 horas",
-          value: 3,
-        },
-        {
-          id: 4,
-          time: "4 horas",
-          value: 4,
-        },
-        {
-          id: 5,
-          time: "5 horas",
-          value: 5,
-        },
-      ],
     };
+  },
+
+  watch: {
+    zoneItemValor(val) {
+      this.zoneItemValor = Number(val);
+    },
+    zoneItemGps(val) {
+      this.zoneItemGps = Number(val);
+    },
+    isDialog(val) {
+      if (val) {
+        this.dataSendForm();
+      }
+    },
   },
 
   created() {
     this.dataSendForm();
   },
+
+  // mounted() {
+  //   this.key = 0;
+  //   setTimeout(() => {
+  //     this.key = 1;
+  //   }, 100);
+  // },
 
   computed: {
     ...mapGetters("zone.store", ["editedZone"]),

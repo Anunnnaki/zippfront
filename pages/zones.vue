@@ -1,19 +1,20 @@
 <template>
   <v-container fluid>
     <Toolbar class="mb-8" title="Zonas" :actionButton="openModal" />
-    <Table :items="table.items">
-      <template slot="actions" slot-scope="{ item }">
-        <v-icon color="#f7c842" class="mr-2" @click="editItem(item)">
+    <Table :headers="headers" :items="table.items">
+      <!-- slot-scope="{ item }" -->
+      <template slot="actions">
+        <!-- <v-icon color="#f7c842" class="mr-2" @click="editItem(item)">
           mdi-pencil
-        </v-icon>
-        <v-icon color="#E74C3C" @click="deleteItem(item)"> mdi-delete </v-icon>
+        </v-icon> -->
+        <!-- <v-icon color="#E74C3C" @click="deleteItem(item)"> mdi-delete </v-icon> -->
       </template>
     </Table>
     <Dialog
       :isDialog.sync="dialog.isDialog"
       :title="!editedZone._id ? 'Nueva zona' : 'Editar zona'"
-      :fullscreen="true"
     />
+    <!-- maxWidth="1100px" -->
   </v-container>
 </template>
 
@@ -32,6 +33,19 @@ export default {
       dialog: {
         isDialog: false,
       },
+      headers: [
+        {
+          text: "Nombre de la zona",
+          align: "start",
+          sortable: false,
+          value: "nameZone",
+        },
+        { text: "Direccion", value: "addressZone" },
+        // { text: "Tipos", value: "tipo" },
+        // { text: "Disponibilidad", value: "dispo" },
+        // { text: "Valor", value: "valor" },
+        // { text: "Actions", value: "actions", sortable: false },
+      ],
     };
   },
 

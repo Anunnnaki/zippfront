@@ -1,4 +1,4 @@
 export const Regex = {
-    onlyLetters: /[áéíóú.ÁÉÍÓÚ.a-zñA-ZÑ ]+$/,
-    onlyAdress: /[-.#.0-9a-z ]+$/
+    onlyString: /^[áéíóúÁÉÍÓÚa-zñA-ZÑ ]+$/,
+    onlyAddress: /^[-#0-9a-zñA-ZÑ ]+$/
 }

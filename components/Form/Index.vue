@@ -38,7 +38,7 @@
     </template>
     <!-- Acciones del formulario -->
     <template v-else>
-      <div class="d-flex justify-end">
+      <div class="d-flex justify-end mt-6">
         <Button
           :actionButton="closeDialog"
           color="secondary"
@@ -98,6 +98,14 @@ export default {
       this.$emit("update:isDialog", false);
       this.$refs.form.reset();
       $nuxt.$store.dispatch("zone.store/actResetState");
+    },
+  },
+  watch: {
+    isDialog(val) {
+      if (val) {
+        this.$refs.form.reset();
+        $nuxt.$store.dispatch("zone.store/actResetState");
+      }
     },
   },
 };
