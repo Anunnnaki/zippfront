@@ -1,3 +1,5 @@
+import { alertGeneral } from "~/assets/Alert";
+
 export const loginController = {
     singIn: async (payload) => {
         try {
@@ -12,7 +14,8 @@ export const loginController = {
 
             }
         } catch (error) {
-            alert("Correo o contraseña incorrecta");
+            alertGeneral('Ups!','Correo o contraseña incorrecta','error')
+
         }
     }
 }
