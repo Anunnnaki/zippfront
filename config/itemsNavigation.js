@@ -6,7 +6,7 @@ export default [
   // },
   {
     icon: "map-marker",
-    title: "Mis zonas",
+    title: "Zonas",
     to: "zones",
   },
 ];
