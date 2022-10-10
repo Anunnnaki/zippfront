@@ -11,6 +11,7 @@
           :lat-lng="[item.gps.latitud, item.gps.longitud]"
           :icon="icon"
         >
+          <MapPopupInfoZone />
         </l-marker>
       </template>
     </l-map>
