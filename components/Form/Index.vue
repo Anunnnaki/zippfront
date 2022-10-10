@@ -38,8 +38,12 @@
     </template>
     <!-- Acciones del formulario -->
     <template v-else>
-      <div class="d-flex justify-end">
-        <Button :actionButton="closeDialog" color="secondary" label="Cerrar" />
+      <div class="d-flex justify-end mt-6">
+        <Button
+          :actionButton="closeDialog"
+          color="secondary"
+          label="Cancelar"
+        />
         <!-- :disabled="!validForm" -->
         <Button
           class="ml-2"

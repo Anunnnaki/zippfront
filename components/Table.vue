@@ -17,6 +17,10 @@
 <script>
 export default {
   props: {
+    headers: {
+      type: Array,
+      default: () => [],
+    },
     items: {
       type: Array,
       default: () => [],
@@ -25,19 +29,7 @@ export default {
   data: () => ({
     dialog: false,
     dialogDelete: false,
-    headers: [
-      {
-        text: "Nombre de la zona",
-        align: "start",
-        sortable: false,
-        value: "nameZone",
-      },
-      { text: "Direccion", value: "addressZone" },
-      { text: "Tipos", value: "tipo" },
-      { text: "Disponibilidad", value: "dispo" },
-      { text: "Valor", value: "valor" },
-      { text: "Actions", value: "actions", sortable: false },
-    ],
+
     desserts: [],
     editedIndex: -1,
     editedItem: {
@@ -196,8 +188,8 @@ export default {
 };
 </script>
 
-<style >
-.v-data-table__wrapper {
+<style>
+/* .v-data-table__wrapper {
   height: calc(100vh - 200px);
-}
+} */
 </style>

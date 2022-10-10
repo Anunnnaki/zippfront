@@ -2,13 +2,13 @@
   <v-container fill-height>
     <v-row>
       <!-- Mapa -->
-      <v-col cols="6">
+      <!-- <v-col cols="6">
         <v-card style="height: calc(100vh - 250px)">
           <LazyMap :key="key"
         /></v-card>
-      </v-col>
+      </v-col> -->
       <!-- Formulario -->
-      <v-col cols="6">
+      <v-col cols="12">
         <v-row>
           <v-col cols="12" class="mb-n6">
             <Input
@@ -31,7 +31,7 @@
                 :rules="rules.zoneItemGps"
               />
             </v-col> -->
-          <v-col cols="12" class="mb-n6">
+          <!-- <v-col cols="12" class="mb-n6">
             <Input
               label="Tipos"
               :model.sync="zoneItemTipo"
@@ -44,7 +44,7 @@
               :model.sync="zoneItemDispo"
               :rules="rules.zoneItemDispo"
             />
-          </v-col>
+          </v-col> -->
           <!-- <v-col cols="12">
               <Input
                 label="Valor"
