@@ -121,12 +121,12 @@ export default {
     this.dataSendForm();
   },
 
-  mounted() {
-    this.key = 0;
-    setTimeout(() => {
-      this.key = 1;
-    }, 100);
-  },
+  // mounted() {
+  //   this.key = 0;
+  //   setTimeout(() => {
+  //     this.key = 1;
+  //   }, 100);
+  // },
 
   computed: {
     ...mapGetters("zone.store", ["editedZone"]),

@@ -100,5 +100,13 @@ export default {
       $nuxt.$store.dispatch("zone.store/actResetState");
     },
   },
+  watch: {
+    isDialog(val) {
+      if (val) {
+        this.$refs.form.reset();
+        $nuxt.$store.dispatch("zone.store/actResetState");
+      }
+    },
+  },
 };
 </script>
