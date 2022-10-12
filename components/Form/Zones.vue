@@ -2,13 +2,20 @@
   <v-container fill-height>
     <v-row>
       <!-- Mapa -->
-      <!-- <v-col cols="6">
-        <v-card style="height: calc(100vh - 250px)">
-          <LazyMap :key="key"
-        /></v-card>
-      </v-col> -->
+      <v-col>
+        <div class="secondary text-center">
+          <span class="primary--text text-subtitle-1">{{
+            isFormShow
+              ? "Zona seleccionada"
+              : "Seleccione en el mapa el lugar de su zona"
+          }}</span>
+        </div>
+        <v-card style="height: calc(100vh - 280px)" class="mt-4">
+          <LazyMap :items="itemZoneMarker" :key="key" :clickMap="addMarker" />
+        </v-card>
+      </v-col>
       <!-- Formulario -->
-      <v-col cols="12">
+      <v-col cols="3" v-if="isFormShow">
         <v-row>
           <v-col cols="12" class="mb-n6">
             <Input
@@ -17,13 +24,13 @@
               :rules="rules.zoneItemNameZone"
             />
           </v-col>
-          <v-col cols="12" class="mb-n6">
+          <!-- <v-col cols="12" class="mb-n6">
             <Input
               label="Direccion de la zona"
               :model.sync="zoneItemAddressZone"
               :rules="rules.zoneItemAddressZone"
             />
-          </v-col>
+          </v-col> -->
           <!-- <v-col cols="12" class="mb-n6">
               <Input
                 label="GPS"
@@ -84,6 +91,8 @@ export default {
   data() {
     return {
       key: 0,
+      itemZoneMarker: [],
+      isFormShow: false,
       rules: {
         zoneItemNameZone: [
           (v) => !!v || "El nombre de la zona es requerido",
@@ -104,15 +113,16 @@ export default {
   },
 
   watch: {
-    zoneItemValor(val) {
-      this.zoneItemValor = Number(val);
-    },
-    zoneItemGps(val) {
-      this.zoneItemGps = Number(val);
-    },
+    // zoneItemValor(val) {
+    //   this.zoneItemValor = Number(val);
+    // },
+    // zoneItemGps(val) {
+    //   this.zoneItemGps = Number(val);
+    // },
     isDialog(val) {
       if (val) {
         this.dataSendForm();
+        this.isFormShow = false;
       }
     },
   },
@@ -121,12 +131,12 @@ export default {
     this.dataSendForm();
   },
 
-  // mounted() {
-  //   this.key = 0;
-  //   setTimeout(() => {
-  //     this.key = 1;
-  //   }, 100);
-  // },
+  mounted() {
+    this.key = 0;
+    setTimeout(() => {
+      this.key = 1;
+    }, 100);
+  },
 
   computed: {
     ...mapGetters("zone.store", ["editedZone"]),
@@ -135,19 +145,19 @@ export default {
       mut: "zone.store/setProperty",
     }),
 
-    valor() {
-      const itemAvailable = this.selectItemsDispo.find(
-        (v) => v.id === this.zoneItemDispo
-      );
+    // valor() {
+    //   const itemAvailable = this.selectItemsDispo.find(
+    //     (v) => v.id === this.zoneItemDispo
+    //   );
 
-      const itemType = this.selectItemsType.find(
-        (v) => v.id === this.zoneItemTipo
-      );
-      if (!itemAvailable || !itemType) {
-        return null;
-      }
-      return this.formatMoney(itemAvailable.value * itemType.price);
-    },
+    //   const itemType = this.selectItemsType.find(
+    //     (v) => v.id === this.zoneItemTipo
+    //   );
+    //   if (!itemAvailable || !itemType) {
+    //     return null;
+    //   }
+    //   return this.formatMoney(itemAvailable.value * itemType.price);
+    // },
   },
 
   methods: {
@@ -164,19 +174,19 @@ export default {
     },
 
     addMarker({ containerPoint, latlng }) {
-      const gps = {
-        latitud: latlng.lat,
-        longitud: latlng.lng,
-      };
-
-      this.items = [
+      this.itemZoneMarker = [
         {
-          id: containerPoint.y,
-          gps,
+          // id: containerPoint.y,
+          gps: {
+            latitud: latlng.lat,
+            longitud: latlng.lng,
+          },
         },
       ];
 
-      this.zoneItemGps = gps;
+      this.zoneItemGps = this.itemZoneMarker[0].gps;
+
+      this.isFormShow = true;
     },
 
     formatMoney(value) {

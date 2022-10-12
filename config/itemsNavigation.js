@@ -1,9 +1,9 @@
 export default [
-  // {
-  //   icon: "map-outline",
-  //   title: "Mapa",
-  //   to: "map",
-  // },
+  {
+    icon: "map-outline",
+    title: "Mapa",
+    to: "map",
+  },
   {
     icon: "map-marker",
     title: "Zonas",

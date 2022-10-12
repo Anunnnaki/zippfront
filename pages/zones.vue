@@ -13,6 +13,7 @@
     <Dialog
       :isDialog.sync="dialog.isDialog"
       :title="!editedZone._id ? 'Nueva zona' : 'Editar zona'"
+      maxWidth="1100px"
     />
     <!-- maxWidth="1100px" -->
   </v-container>
@@ -40,7 +41,7 @@ export default {
           sortable: false,
           value: "nameZone",
         },
-        { text: "Direccion", value: "addressZone" },
+        // { text: "Direccion", value: "addressZone" },
         // { text: "Tipos", value: "tipo" },
         // { text: "Disponibilidad", value: "dispo" },
         // { text: "Valor", value: "valor" },

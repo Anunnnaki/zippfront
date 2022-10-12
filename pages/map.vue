@@ -1,5 +1,7 @@
 <template>
-  <Map :items="items" />
+  <div class="fill-height">
+    <Map :items="items" />
+  </div>
 </template>
 
 <script>
@@ -18,6 +20,7 @@ export default {
     const zones = await this.getZones();
     this.items = zones;
   },
+
   methods: {
     getZones: zoneController.get.zones,
 
@@ -27,7 +30,3 @@ export default {
   },
 };
 </script>
-<<<<<<< HEAD =======
-
-<style></style>
->>>>>>> release/0.1.0

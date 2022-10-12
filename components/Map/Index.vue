@@ -1,6 +1,10 @@
 <template>
   <client-only>
-    <l-map :zoom="15" :center="[5.063113580516123, -75.50212878432099]">
+    <l-map
+      :zoom="15"
+      :center="[5.063113580516123, -75.50212878432099]"
+      @click="clickMap"
+    >
       <l-tile-layer
         url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
       ></l-tile-layer>
@@ -23,6 +27,10 @@ import L from "leaflet";
 
 export default {
   props: {
+    clickMap: {
+      type: Function,
+      default: () => null,
+    },
     items: {
       type: Array,
       default: () => [],

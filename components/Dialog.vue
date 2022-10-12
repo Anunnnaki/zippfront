@@ -6,9 +6,7 @@
           <span class="text-h5" v-text="title" />
         </v-card-title>
         <v-card-text>
-          <v-container>
-            <Form formShow="formZones" :isDialog.sync="localIsDialog" />
-          </v-container>
+          <Form formShow="formZones" :isDialog.sync="localIsDialog" />
         </v-card-text>
       </v-card>
     </v-dialog>

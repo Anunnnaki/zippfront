@@ -5,6 +5,7 @@
     expand-on-hover
     color="tertiary"
     style="z-index: 9999"
+    :mini-variant.sync="variant"
   >
     <v-list>
       <v-list-item class="px-2">
@@ -46,10 +47,10 @@ export default {
       navigation: {
         items: itemsNavigation,
       },
+      variant: true,
     };
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>
