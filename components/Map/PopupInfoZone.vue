@@ -13,9 +13,9 @@
         Calle 20 No. 22 - 27 piso 3 Edificio Cumanday
       </v-card-subtitle>
 
-      <v-card-actions>
+      <!-- <v-card-actions>
         <Button label="Ir" class="ml-auto" />
-      </v-card-actions>
+      </v-card-actions> -->
     </v-card>
   </l-popup>
 </template>
