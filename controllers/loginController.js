@@ -10,7 +10,7 @@ export const loginController = {
                     key: 'token',
                     value: data.data.token
                 })
-                $nuxt.$router.push({name: 'home'})
+                $nuxt.$router.push({name: 'map'})
 
             }
         } catch (error) {
