@@ -39,8 +39,8 @@ export default {
   data() {
     return {
       icon: L.icon({
-        iconUrl: "/img/zipp_logo_map.png",
-        iconSize: [50, 50],
+        iconUrl: "img/logo_zipp_map.svg",
+        iconSize: [60, 60],
         iconAnchor: [16, 37],
       }),
     };
