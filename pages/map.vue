@@ -21,6 +21,15 @@ export default {
     this.items = zones;
   },
 
+  watch: {
+    "$fetchState.pending"(val) {
+      $nuxt.$store.dispatch("app/actUpdateValue", {
+        key: "isLoading",
+        value: val,
+      });
+    },
+  },
+
   methods: {
     getZones: zoneController.get.zones,
 

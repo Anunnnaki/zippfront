@@ -22,18 +22,20 @@
     <!-- Acciones en cuanto login/registro -->
     <template v-if="isLoginRegister">
       <Button
-        :label="formShow === 'formSignUp' ? 'Tengo una cuenta' : 'Crear cuenta'"
-        class="mb-4 mt-n4 white--text"
-        color="secondary"
-        :block="true"
-        :actionButton="actionButton"
-      />
-      <Button
         :block="true"
         color="primary"
+        class="mb-4 mt-n4"
         :label="formShow === 'formSignUp' ? 'Crear' : 'Iniciar sesion'"
         type="submit"
         :disabled="!validForm"
+      />
+
+      <Button
+        :label="formShow === 'formSignUp' ? 'Tengo una cuenta' : 'Crear cuenta'"
+        class=" white--text"
+        color="secondary"
+        :block="true"
+        :actionButton="actionButton"
       />
     </template>
     <!-- Acciones del formulario -->

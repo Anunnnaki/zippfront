@@ -1,6 +1,5 @@
 <template>
   <v-row>
-    <v-col> d </v-col>
     <v-col>
       <v-row>
         <v-col cols="12">

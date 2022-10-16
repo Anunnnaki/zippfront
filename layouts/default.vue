@@ -4,6 +4,7 @@
     <v-main>
       <Nuxt />
     </v-main>
+    <Loading />
   </v-app>
 </template>
 
