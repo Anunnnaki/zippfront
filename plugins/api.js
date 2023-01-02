@@ -3,7 +3,7 @@ export default function ({ $axios }, inject) {
   const api = $axios.create()
 
   // Set baseURL to something different
-  api.setBaseURL('http://localhost:3001/api')
+  api.setBaseURL('https://zipp.onrender.com/api')
   
   // Inject to context as $api
   inject('api', api)
